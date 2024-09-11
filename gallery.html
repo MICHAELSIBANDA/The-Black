@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Black Restaurant - Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional CSS for Gallery Slideshow */
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+            overflow: hidden;
+            height: 400px; /* Set fixed height */
+        }
+
+        .mySlides {
+            display: none;
+            height: 400px; /* Set fixed height */
+        }
+
+        .mySlides img {
+            width: 100%;
+            height: 100%; /* Ensure images fill the container */
+            object-fit: cover; /* Maintain aspect ratio */
+        }
+
+        /* Slideshow navigation buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            z-index: 1000; /* Ensure buttons are above other content */
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="header_image.jpg" alt="The Black Restaurant">
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="reservations.html">Reservations</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <h2>Gallery</h2>
+        <!-- Gallery slideshow -->
+        <div class="slideshow-container">
+            <!-- Full-width images with number and caption text -->
+            <div class="mySlides fade">
+                <img src="header_image.jpg" alt="Header Image">
+            </div>
+            <div class="mySlides fade">
+                <img src="slide1.jpg" alt="Slide 1">
+            </div>
+            <div class="mySlides fade">
+                <img src="slide2.jpg" alt="Slide 2">
+            </div>
+            <div class="mySlides fade">
+                <img src="slide3.jpg" alt="Slide 3">
+            </div>
+            <div class="mySlides fade">
+                <img src="gallery_image1.jpg" alt="Gallery Image 1">
+            </div>
+            <div class="mySlides fade">
+                <img src="gallery_image2.jpg" alt="Gallery Image 2">
+            </div>
+            <!-- Navigation buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+    </div>
+
+    <script>
+        var slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex-1].style.display = "block";  
+            setTimeout(showSlides, 5000); // Change image every 5 seconds
+        }
+
+        // Next/previous controls
+        function plusSlides(n) {
+            clearTimeout(timeout);
+            slideIndex += n;
+            showSlides();
+        }
+    </script>
+</body>
+</html>
